@@ -1,0 +1,14 @@
+<table>
+  <thead>
+    <tr>
+      <th>name</th><th>code</th><th>completed</th><th>ceremony</th><th>reception</th><th>dietary restrictions</th><th>updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% guests.forEach(function(guest) { %>
+      <tr>
+        <td><%= guest.name %></td><td><%= guest.code %></td><td><%= guest.completed %></td><td><%= guest.attending_ceremony %></td><td><%= guest.attending_reception %></td><td><%= guest.dietary_restriction %></td><td><%= guest.updated_at %></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>

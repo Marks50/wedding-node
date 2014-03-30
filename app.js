@@ -1,3 +1,4 @@
+require('./db');
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -7,7 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes');
-var users = require('./routes/user');
+var guests = require('./routes/guest');
 
 var app = express();
 
@@ -25,7 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
 app.get('/', routes.index);
-app.get('/users', users.list);
+app.get('/guests', guests.list);
+app.get('/guest', guests.index);
+app.post('/guest', guests.search);
+app.post('/rsvp', guests.rsvp);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

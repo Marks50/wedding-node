@@ -1,0 +1,18 @@
+<h1>RSVP</h1>
+<form role="form">
+  <div class="form-group
+    <%if (!success) { %>
+      has-error
+    <% } %>
+    ">
+    <label for="code"><%= message %></label>
+    <input
+      type="number"
+      class="form-control"
+      id="code"
+      placeholder="4-Digit Code"
+      value="<%= value %>"
+      >
+  </div>
+  <button type="submit" id="search" class="btn btn-default">Search</button>
+</form>

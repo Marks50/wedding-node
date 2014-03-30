@@ -19,7 +19,7 @@ var ApplicationRouter = Backbone.Router.extend({
 			mapId: "map-reception",
 			mapTitle: "Riviera Parque"
 		});
-		this.rsvpView = new ContentView({template: '#rsvp'});
+		this.rsvpView = new RsvpView({template: '#rsvp'});
 		this.accommadationsView = new ContentView({template: '#accommadations'});
 		this.notFoundView = new ContentView({template: '#not-found'});
 	},

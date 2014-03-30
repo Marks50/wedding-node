@@ -301,6 +301,23 @@ a.view-bio:hover {
   margin: 0;
 }
 
+.rsvp-table th,
+.rsvp-table td {
+  text-align: left;
+}
+
+.rsvp-table > tbody > tr > td {
+  padding:10px;
+}
+
+label.radio {
+  padding: 0 20px;
+}
+
+.tooltip-inner {
+  background-color: red;
+}
+
 .clearfix {
   margin: 0;
   padding: 0;

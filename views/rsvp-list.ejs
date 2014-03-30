@@ -1,0 +1,48 @@
+<h1>RSVP</h1>
+<form role="form">
+  <table class="rsvp-table table table-condensed">
+    <thead>
+      <th>Name</th><th>Attending Ceremony?</th><th>Attending Reception?</th><th>Dietary Restrictions</th>
+    </thead>
+    <tbody>
+    <% guests.forEach(function(guest) { %>
+      <tr>
+        <td><%= guest.name %><input type="hidden" name="guest-id" value="<%= guest._id %>"/></td>
+        <td>
+            <div class="form-inline">
+              <div class="controls-row">
+                <label class="radio inline">
+                    <input type="radio" name="ceremony-attendance-<%= guest._id %>" value="yes"/>
+                    Yes
+                </label>
+                <label class="radio inline" id="ceremony-error-<%= guest._id %>" data-toggle="tooltip" data-trigger="manual" data-placement="right" title="Please let us know if you're coming!">
+                    <input type="radio" name="ceremony-attendance-<%= guest._id %>" value="no"/>
+                    No
+                </label>
+              </div>
+            </div>
+        </td>
+        <td>
+            <div class="form-inline">
+              <div class="controls-row">
+                <label class="radio inline">
+                    <input type="radio" name="reception-attendance-<%= guest._id %>" value="yes"/>
+                    Yes
+                </label>
+                <label class="radio inline" id="reception-error-<%= guest._id %>" data-toggle="tooltip" data-trigger="manual" data-placement="right" title="Please let us know if you're coming!">
+                    <input type="radio" name="reception-attendance-<%= guest._id %>" value="no"/>
+                    No
+                </label>
+              </div>
+            </div>
+        </td>
+        <td>
+          <input type="text" name="dietary-<%= guest._id %>" placeholder="ie. allergies"/>
+        </td>
+      </tr>
+    <% }); %>
+    </tbody>
+  </table>
+
+  <button type="submit" id="rsvp-submit" class="btn btn-default">RSVP!</button>
+</form>
