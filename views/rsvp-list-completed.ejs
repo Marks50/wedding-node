@@ -1,0 +1,42 @@
+<h1>RSVP</h1>
+<% if (completed) { %>
+  <div class="alert alert-success">
+    Thank you for RSVPing!
+  </div>
+<% } %>
+
+<form role="form">
+  <table class="rsvp-table table table-condensed">
+    <thead>
+      <th>Name</th><th>Attending Ceremony?</th><th>Attending Reception?</th><th>Dietary Restrictions</th>
+    </thead>
+    <tbody>
+    <% guests.forEach(function(guest) { %>
+      <tr>
+        <td><%= guest.name %><input type="hidden" name="guest-id" value="<%= guest._id %>"/></td>
+        <td>
+          <% if (guest.attending_ceremony) { %>
+            Yes
+          <% } else { %>
+            No
+          <% } %>
+        </td>
+        <td>
+          <% if (guest.attending_reception) { %>
+            Yes
+          <% } else { %>
+            No
+          <% } %>
+        </td>
+        <td>
+          <% if (guest.dietary_restriction) { %>
+            <%= guest.dietary_restriction %>
+          <% } else { %>
+            None
+          <% } %>
+        </td>
+      </tr>
+    <% }); %>
+    </tbody>
+  </table>
+</form>

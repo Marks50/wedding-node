@@ -17,6 +17,7 @@ var RsvpView = ContentView.extend({
       },
       dataType: 'html'
     }).done(function(data) {
+      $.cookie('rsvp_code', code);
       self.renderAndRebind(data);
     });
   },
@@ -57,8 +58,7 @@ var RsvpView = ContentView.extend({
         dataType: 'html',
         data: {guests: guests}
       }).done(function(data) {
-        // show their options
-        console.log(data);
+        self.renderAndRebind(data);
       });
     }
 
@@ -95,15 +95,29 @@ var RsvpView = ContentView.extend({
 
   render: function(html) {
     var self = this;
+    var code = $.cookie('rsvp_code');
 
-    $.ajax({
-      url: '/guest',
-      type: 'GET',
-      dataType: 'html'
-    }).done(function(data) {
-      self.renderAndRebind(data);
-      $('#code').focus();
-    });
+    if (code) {
+      $.ajax({
+        url: '/guest',
+        type: 'POST',
+        data: {
+          code: code
+        },
+        dataType: 'html'
+      }).done(function(data) {
+        self.renderAndRebind(data);
+      });
+    } else {
+      $.ajax({
+        url: '/guest',
+        type: 'GET',
+        dataType: 'html'
+      }).done(function(data) {
+        self.renderAndRebind(data);
+        $('#code').focus();
+      });
+    }
   },
 
   renderAndRebind: function(html) {

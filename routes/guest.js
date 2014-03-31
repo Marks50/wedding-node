@@ -37,12 +37,24 @@ exports.search = function(req, res) {
       return;
     }
 
-    res.render('rsvp-list', {guests: guests});
+    guests.forEach(function(guest) {
+      if (guest.completed) {
+        res.render('rsvp-list-completed', {guests: guests, completed: false});
+      } else {
+        res.render('rsvp-list', {guests: guests});
+      }
+      return false;
+    });
   });
 };
 
 exports.rsvp = function(req, res) {
+  var numGuests = req.body.guests.length;
+  var numProcessed = 0;
+
   req.body.guests.forEach(function(guest) {
+    numProcessed++;
+
     var data = {
       attending_ceremony: guest.ceremony === 'true' ? true : false,
       attending_reception: guest.reception === 'true' ? true : false,
@@ -57,11 +69,14 @@ exports.rsvp = function(req, res) {
       {},
       function(error, updatedGuest) {
         console.log('saved', updatedGuest.name, updatedGuest.updated_at);
+        if (numProcessed === numGuests) {
+          Guest.find({code: updatedGuest.code}, null, {sort: {name: 1}}, function(err, guests) {
+            res.render('rsvp-list-completed', {guests: guests, completed: true});
+          });
+        }
       }
     );
-
   });
-  res.json({});
 };
 
 
