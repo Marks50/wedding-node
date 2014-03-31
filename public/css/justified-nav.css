@@ -301,6 +301,11 @@ a.view-bio:hover {
   margin: 0;
 }
 
+.code-search {
+  max-width:450px;
+  margin: 0 auto;
+}
+
 .rsvp-table th,
 .rsvp-table td {
   text-align: left;
