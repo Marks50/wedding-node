@@ -115,7 +115,7 @@ var WeddingPartyView = ContentView.extend({
           'So after a long day, studying at UTM, he took her out for a fancy dinner at Pizza Hut. After graciously paying for the meal, Anton took Cindy home. He was about to make his big move,' +
           'when the unimaginable happened: He chickened out!' +
         '</p><p>' +
-          'Driving away, images of a life without Cindy flashed before Anton&apos;s eyes, causing him to shudder at the possibility of such a world. After a boost in confidence (yelling) from Nia Warrouw, Anton turned the car around,' +
+          'Driving away, images of a life without Cindy flashed before Anton&apos;s eyes, causing him to shudder at the possibility of such a world. After a boost in confidence (yelling) from Nia Warouw, Anton turned the car around,' +
           'and drove back to Cindy&apos;s home. In order to lure her out, Anton shamefully lied to her, telling her that he had "lost" his debit card on her driveway, and needed' +
           'her help to find it. Cindy came out, with her flashlight, where Anton unveiled the depths of his deceit and revealed his feelings for her. It worked, and so on November 13th, 2005,' +
           'they became lovers.' +
@@ -177,7 +177,7 @@ var WeddingPartyView = ContentView.extend({
           '</ul>' +
           'Impressive as theses accomplishments are, there is none greater then Ramiro and Anton getting, not one, but TWO engagement rings!' +
           'Having spent months researching the world of diamonds, they realized the diamonds found in many local stores simply wasn&apos;t good enough for their significant others.' +
-          'So drive to Detroit they did, twice, to find the perfect diamond. And smuggled the diamonds across the border they did, twice, in the pursuit of maritial happiness.' +
+          'So drive to Detroit they did, twice, to find the perfect diamond. And carried the diamonds across the border they did, twice, in the pursuit of maritial happiness.' +
           'Suffice to say, without Anton, Ramiro wouldn&apos;t be married, and without Ramiro, neither would Anton.' +
         '</p>'
     },
