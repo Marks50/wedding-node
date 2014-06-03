@@ -2,9 +2,14 @@ var mongoose = require('mongoose');
 var Guest = mongoose.model('Guest');
 
 exports.list = function(req, res) {
-  Guest.find({}, null, {sort: {code: 1}}, function(err, guests) {
-    res.render('guests', {
-      guests: guests
+  // Find completed
+  Guest.find({ completed: true }, null, {sort: {code: 1}}, function(err, completedguests) {
+    // Find uncompleted
+    Guest.find({ completed: false }, null, {sort: {code: 1}}, function(err, uncompletedguests) {
+      res.render('guests', {
+        completedguests: completedguests,
+        uncompletedguests: uncompletedguests
+      });
     });
   });
 };
