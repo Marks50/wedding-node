@@ -14,11 +14,35 @@ exports.list = function(req, res) {
   });
 };
 
-exports.index = function(req, res) {
-  res.render('rsvp-search', {
-    value: "",
-    message: "Your RSVP code can be found along with your invitation. Enter it below to find your RSVP information.",
-    success: true
+exports.get = function(req, res) {
+  Guest.findById(req.params.id, function(err, guest) {
+    if (err) {
+      res.render('not-found');
+      return;
+    }
+
+    res.render('guest', {
+      guest: guest
+    });
+  });
+}
+
+exports.update = function(req, res) {
+  Guest.findById(req.params.id, function(err, guest) {
+    if (err) {
+      res.render('not-found');
+      return;
+    }
+
+    guest.name = req.body.name;
+    guest.code = req.body.code;
+    guest.attending_ceremony = req.body.ceremony === "true" ? true : false;
+    guest.attending_reception = req.body.reception === "true" ? true : false;
+    guest.completed = req.body.completed === "true" ? true : false;
+    guest.dietary_restriction = req.body.dietary;
+    guest.save();
+
+    res.redirect('/guest/' + req.params.id);
   });
 }
 

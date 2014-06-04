@@ -29,7 +29,7 @@
           <tbody>
             <% completedguests.forEach(function(guest) { %>
               <tr>
-                <td><%= guest.name %></td><td><%= guest.code %></td><td><%= guest.attending_ceremony %></td><td><%= guest.attending_reception %></td><td><%= guest.dietary_restriction %></td><td><%= guest.updated_at %></td>
+                <td><a href="/guest/<%= guest.id %>"><%= guest.name %></a></td><td><%= guest.code %></td><td><%= guest.attending_ceremony %></td><td><%= guest.attending_reception %></td><td><%= guest.dietary_restriction %></td><td><%= guest.updated_at %></td>
               </tr>
             <% }); %>
           </tbody>
@@ -46,7 +46,7 @@
           <tbody>
             <% uncompletedguests.forEach(function(guest) { %>
               <tr>
-                <td><%= guest.name %></td><td><%= guest.code %></td><td><%= guest.attending_ceremony %></td><td><%= guest.attending_reception %></td><td><%= guest.dietary_restriction %></td><td><%= guest.updated_at %></td>
+                <td><a href="/guest/<%= guest.id %>"><%= guest.name %></a></td><td><%= guest.code %></td><td><%= guest.attending_ceremony %></td><td><%= guest.attending_reception %></td><td><%= guest.dietary_restriction %></td><td><%= guest.updated_at %></td>
               </tr>
             <% }); %>
           </tbody>

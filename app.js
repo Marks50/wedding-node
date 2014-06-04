@@ -27,7 +27,8 @@ app.use(app.router);
 
 app.get('/', routes.index);
 app.get('/guests', guests.list);
-app.get('/guest', guests.index);
+app.get('/guest/:id', guests.get);
+app.post('/guest/:id/update', guests.update);
 app.post('/guest', guests.search);
 app.post('/rsvp', guests.rsvp);
 

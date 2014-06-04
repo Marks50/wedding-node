@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+
+    <title>Cindy &amp; Anton's Wedding Guests</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="content">
+        <h1>Update Guest</h1>
+        <a href = "/guests">Back</a>
+        <form class="form-horizontal" method="POST" action="/guest/<%= guest.id %>/update">
+        <fieldset>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="name">Name</label>
+          <div class="col-md-4">
+          <input id="name" name="name" type="text" placeholder="" class="form-control input-md" value="<%= guest.name %>">
+
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="code">Code</label>
+          <div class="col-md-4">
+          <input id="code" name="code" type="text" placeholder="" class="form-control input-md" value="<%= guest.code %>">
+          </div>
+        </div>
+
+        <!-- Multiple Radios -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="ceremony">Attending Ceremony?</label>
+          <div class="col-md-4">
+          <div class="radio">
+            <label for="ceremony-0">
+              <input type="radio" name="ceremony" id="ceremony-0" value="true"
+              <% if(guest.attending_ceremony) { %>
+                checked="checked"
+              <% } %>
+              >
+              Yes
+            </label>
+          </div>
+          <div class="radio">
+            <label for="ceremony-1">
+              <input type="radio" name="ceremony" id="ceremony-1" value="false"
+              <% if(!guest.attending_ceremony) { %>
+                checked="checked"
+              <% } %>
+              >
+              No
+            </label>
+          </div>
+          </div>
+        </div>
+
+        <!-- Multiple Radios -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="reception">Attending Reception?</label>
+          <div class="col-md-4">
+          <div class="radio">
+            <label for="reception-0">
+              <input type="radio" name="reception" id="reception-0" value="true"
+              <% if(guest.attending_reception) { %>
+                checked="checked"
+              <% } %>
+              >
+              Yes
+            </label>
+          </div>
+          <div class="radio">
+            <label for="reception-1">
+              <input type="radio" name="reception" id="reception-1" value="false"
+              <% if(!guest.attending_reception) { %>
+                checked="checked"
+              <% } %>
+              >
+              No
+            </label>
+          </div>
+          </div>
+        </div>
+
+        <!-- Multiple Radios -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="completed">Completed</label>
+          <div class="col-md-4">
+          <div class="radio">
+            <label for="completed-0">
+              <input type="radio" name="completed" id="completed-0" value="true"
+              <% if(guest.completed) { %>
+                checked="checked"
+              <% } %>
+              >
+              Yes
+            </label>
+          </div>
+          <div class="radio">
+            <label for="completed-1">
+              <input type="radio" name="completed" id="completed-1" value="false"
+              <% if(!guest.completed) { %>
+                checked="checked"
+              <% } %>
+              >
+              No
+            </label>
+          </div>
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="dietary">Dietary Restrictions</label>
+          <div class="col-md-4">
+            <textarea class="form-control" id="dietary" name="dietary"><%= guest.dietary_restriction %></textarea>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for=""></label>
+          <div class="col-md-4">
+            <button class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </div>
+
+        </fieldset>
+        </form>
+      </div>
+    </div> <!-- /container -->
+
+  </body>
+</html>
