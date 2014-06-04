@@ -349,6 +349,10 @@ label.radio {
   background-position: 0 -440px;
 }
 
+#hampton .hotel-photo {
+  background-position: 0 -550px;
+}
+
 /* Responsive: Portrait tablets and up */
 @media (min-width: 768px) {
   body {
