@@ -27,6 +27,23 @@ exports.get = function(req, res) {
   });
 }
 
+exports.create = function(req, res) {
+  var guest = new Guest({
+    name: req.body.name,
+    code: req.body.code,
+    attending_ceremony: req.body.ceremony === "true" ? true : false,
+    attending_reception: req.body.reception === "true" ? true : false,
+    completed: req.body.completed === "true" ? true : false,
+    dietary_restriction: req.body.dietary
+  });
+  guest.save();
+  res.redirect('/guest/' + guest.id);
+}
+
+exports.createForm = function(req, res) {
+    res.render('create-guest');
+}
+
 exports.update = function(req, res) {
   Guest.findById(req.params.id, function(err, guest) {
     if (err) {

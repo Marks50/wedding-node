@@ -27,6 +27,8 @@ app.use(app.router);
 
 app.get('/', routes.index);
 app.get('/guests', guests.list);
+app.get('/guest/create', guests.createForm);
+app.post('/guest/create', guests.create);
 app.get('/guest/:id', guests.get);
 app.post('/guest/:id/update', guests.update);
 app.post('/guest', guests.search);
