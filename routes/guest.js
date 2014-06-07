@@ -63,6 +63,14 @@ exports.update = function(req, res) {
   });
 }
 
+exports.index = function(req, res) {
+  res.render('rsvp-search', {
+    value: "",
+    message: "Your RSVP code can be found along with your invitation. Enter it below to find your RSVP information.",
+    success: true
+  });
+}
+
 exports.search = function(req, res) {
   if (!req.body.code) {
     res.render('rsvp-search', {
