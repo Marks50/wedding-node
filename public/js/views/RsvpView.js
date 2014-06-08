@@ -5,7 +5,8 @@ var RsvpView = ContentView.extend({
     'change input[type=radio]': 'clearErrorMessage'
   },
 
-  findCode: function() {
+  findCode: function(e) {
+    e.preventDefault();
     var self = this;
     var code = this.$("#code").val();
 
