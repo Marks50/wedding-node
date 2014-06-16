@@ -3,10 +3,24 @@ var Guest = mongoose.model('Guest');
 
 exports.list = function(req, res) {
   // Find completed
-  Guest.find({ completed: true }, null, {sort: {code: 1}}, function(err, completedguests) {
+  Guest.find({ completed: true }, null, {sort: {attending_reception: -1, code: 1, attending_ceremony: -1 }}, function(err, completedguests) {
     // Find uncompleted
     Guest.find({ completed: false }, null, {sort: {code: 1}}, function(err, uncompletedguests) {
+      var reception_guests = [];
+      var ceremony_guests = [];
+      completedguests.forEach(function(guest) {
+        if (guest.attending_reception) {
+          reception_guests.push(guest);
+        }
+
+        if (guest.attending_ceremony) {
+          ceremony_guests.push(guest);
+        }
+
+      });
       res.render('guests', {
+        receptionguests: reception_guests,
+        ceremonyguests: ceremony_guests,
         completedguests: completedguests,
         uncompletedguests: uncompletedguests
       });
