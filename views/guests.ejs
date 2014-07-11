@@ -21,7 +21,7 @@
         <a href="/guest/create">Add Guest</a>
         <h1>Completed</h1>
 
-        <h2><%= ceremonyguests.length %> Attending Ceremony</h2>
+        <h2><%= ceremonyguests.length %> Attending Ceremony, <%= receptionguests.length %> Attending Reception</h2>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -34,38 +34,12 @@
             </tr>
           </thead>
           <tbody>
-            <% ceremonyguests.forEach(function(guest) { %>
+            <% completedguests.forEach(function(guest) { %>
               <tr>
                 <td><a href="/guest/<%= guest.id %>"><%= guest.name %></a></td>
                 <td><%= guest.code %></td>
                 <td><%= guest.attending_ceremony %></td>
                 <td><%= guest.attending_reception %></td>
-                <td><%= guest.dietary_restriction %></td>
-                <td><%= guest.updated_at %></td>
-              </tr>
-            <% }); %>
-          </tbody>
-        </table>
-        <br/>
-        <h2><%= receptionguests.length %> Attending Reception</h2>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Code</th>
-              <th>Reception</th>
-              <th>Ceremony</th>
-              <th>Dietary Restrictions</th>
-              <th>Updated</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% receptionguests.forEach(function(guest) { %>
-              <tr>
-                <td><a href="/guest/<%= guest.id %>"><%= guest.name %></a></td>
-                <td><%= guest.code %></td>
-                <td><%= guest.attending_reception %></td>
-                <td><%= guest.attending_ceremony %></td>
                 <td><%= guest.dietary_restriction %></td>
                 <td><%= guest.updated_at %></td>
               </tr>
