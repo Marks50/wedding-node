@@ -3,7 +3,7 @@ var Guest = mongoose.model('Guest');
 
 exports.list = function(req, res) {
   // Find completed
-  Guest.find({ completed: true }, null, {sort: {updated_at: -1, code: 1, attending_reception: -1, attending_ceremony: -1 }}, function(err, completedguests) {
+  Guest.find({ completed: true }, null, {sort: {code: 1, attending_reception: -1, attending_ceremony: -1 }}, function(err, completedguests) {
     // Find uncompleted
     Guest.find({ completed: false }, null, {sort: {code: 1}}, function(err, uncompletedguests) {
       var reception_guests = [];
